@@ -1,0 +1,158 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <meta name="google-signin-scope" content="profile email"></meta>
+        <meta name="google-signin-client_id" content="469068019414-neoff3qs6d72mhovunlvnuene5m2np1c.apps.googleusercontent.com"></meta>
+        <title>Almalimi.com | Ürün almadan önce ... </title>
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputScript library="js" name="main.js"/>
+    </h:head>
+    <h:body>
+        <div id="header">
+            <ui:include src="header.xhtml"/>
+        </div>
+        <div class="contentGiris">
+            <div class="girisYapBox">
+                <div class="girisYapHeader">
+                    Giriş Yap
+                </div>
+                <div class="girisYapBottom">
+                    <h:form>
+                        <div class="girisYapLeft">
+                            <div class="girisYapPP">
+                                <h:graphicImage value="/images/profil.png"/>
+                            </div>
+                            <div class="girisYapText">
+                                <div class="girisYapBaslik">
+                                    Kullanıcı Adı :
+                                </div>
+                                <div class="girisYapArea">
+                                    <h:inputText value="#{MainBean.girisYapKemail}"  size="30" style="text-align: center;height:25px; margin-bottom:15px; font-size:18px;"/>
+                                </div>
+                                <div class="girisYapBaslik">
+                                    Şifre :
+                                </div>
+                                <div class="girisYapArea">
+                                    <h:inputSecret value="#{MainBean.girisYapKsifre}" size="30" style="text-align: center;height:25px;font-size:18px;"/>
+                                </div>
+                            </div>
+                            <div class="girisYapButtonBox">
+                                <h:commandLink action="#{MainBean.girisYap()}">
+                                    <div class="girisYapButton">
+                                        Giriş Yap
+                                    </div>
+                                </h:commandLink>
+                            </div>
+                            <div class="girisIslemBox">
+                                <div class="girisIslemLeft">
+                                    <h:commandLink action="#{MainBean.uyeOlSayfasinaGit()}" value="Üye Ol"/>
+                                </div>
+                                <div class="girisIslemSeperator">
+                                    /
+                                </div>
+                                <div class="girisIslemRight">
+                                    <h:commandLink action="#{MainBean.sifremiUnuttumSayfasinaGit()}" value="Şifremi Unuttum"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="girisYapRight">
+                            <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '268919217102247',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v3.2'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+                            <script>
+   
+    
+    function Login(){
+        FB.login(function(response){
+             console.log(response);
+  // Handle the response object, like in statusChangeCallback() in our demo
+  // code.
+    if (response.status === 'connected') {
+        
+        GetInfo();
+        
+    }
+    else {
+	
+}
+
+    },{scope:'public_profile, email'});
+    }
+    function Logout(){
+        FB.logout(function(response){
+             console.log(response);
+  // Handle the response object, like in statusChangeCallback() in our demo
+  // code.
+    
+});
+    }
+    function GetInfo() {
+        FB.api('/me','GET',{
+            fields:
+                    'id,name,email'
+        },function(response){
+             document.getElementsByTagName('p')[0].style.display = 'inline';
+             console.log('ID :' + response.id + 
+                    ' AD : ' + response.name +
+                    ' EMAIL : ' + response.email);
+        });
+        
+    
+}
+    
+    
+    
+</script>
+                            <div class="hizliGirisBox">
+                                <h:commandLink  onclick="Login()">
+                                    <h:graphicImage value="/images/facebook.png" width="250px"/>
+                                </h:commandLink>
+                            </div>
+                            <div class="hizliGirisBox" >
+                                
+                                <script src="https://apis.google.com/js/platform.js" async="defer"></script>
+                                
+                                <div class="g-signin2" data-onsuccess="onSignIn" ></div>
+                                <script>
+                                    function onSignIn(googleUser) {
+                                        var profile = googleUser.getBasicProfile();
+                                        
+                                        
+                                        //console.log(profile.getEmail());
+                                  }
+                                  
+                                </script>
+                                
+                                
+                                
+                            </div>
+                            
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <ui:include src="footer.xhtml"/>
+        </div>
+    </h:body>
+</html>
+

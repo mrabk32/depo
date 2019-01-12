@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Almalimi.com | Ürün almadan önce ... </title>
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputScript library="js" name="main.js"/>
+    </h:head>
+    <h:body>
+        <div id="header">
+            <ui:include src="header.xhtml"/>
+        </div>
+        <div class="contentGiris">
+            <div class="girisYapBox">
+                <div class="girisYapHeader">
+                    Giriş Yap
+                </div>
+                <div class="girisYapBottom">
+                    <h:form>
+                        <div class="girisYapLeft">
+                            <div class="girisYapPP">
+                                <h:graphicImage value="/images/profil.png"/>
+                            </div>
+                            <div class="girisYapText">
+                                <div class="girisYapBaslik">
+                                    Kullanıcı Adı :
+                                </div>
+                                <div class="girisYapArea">
+                                    <h:inputText size="30" style="text-align: center;height:25px; margin-bottom:15px; font-size:18px;"/>
+                                </div>
+                                <div class="girisYapBaslik">
+                                    Şifre :
+                                </div>
+                                <div class="girisYapArea">
+                                    <h:inputSecret value="sifre" size="30" style="text-align: center;height:25px;font-size:18px;"/>
+                                </div>
+                            </div>
+                            <div class="girisYapButtonBox">
+                                <h:commandLink action="#">
+                                    <div class="girisYapButton">
+                                        Giriş Yapsss
+                                    </div>
+                                </h:commandLink>
+                            </div>
+                        </div>
+                        <div class="girisYapRight">
+                            <div class="hizliGirisBox">
+                                <h:commandLink action="#">
+                                    <h:graphicImage value="/images/facebook.png" width="250px"/>
+                                </h:commandLink>
+                            </div>
+                            <div class="hizliGirisBox">
+                                <h:commandLink action="#">
+                                    <h:graphicImage value="/images/google.png" width="250px"/>
+                                </h:commandLink>
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <ui:include src="footer.xhtml"/>
+        </div>
+    </h:body>
+</html>
+

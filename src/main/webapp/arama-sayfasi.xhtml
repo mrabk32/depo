@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Almalimi.com | Ürün almadan önce ... </title>
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputScript library="js" name="main.js"/>
+    </h:head>
+    <h:body>
+        <div id="header">
+            <ui:include src="header.xhtml"/>
+        </div>
+        <div id="aramaContent">
+            <div class="aramaItemList">
+                <h:form>
+                    <h:outputText rendered="#{MainBean.arananUrunlerList==null}" value="Üzgünüz! Aradığınız ürünü bulamadık." style="font-size:22px;font-weight:bold;padding-left:50px;"/>
+                    <ui:repeat value="#{MainBean.arananUrunlerList}" var="urunListItem">
+                        <h:commandLink action="#{MainBean.urunSayfasinaGit(urunListItem.urunID)}">
+                            <div class="homeUrunItem" >
+                                <div class="homeUrunItemPic">
+                                    <h:graphicImage value="#{urunListItem.imagePath}" style="width:350px;height:200px;"/>
+                                </div>
+                                <div class="homeUrunItemBottom">
+                                    <div class="homeUrunItemHeader">
+                                        <div class="homeUrunItemHeaderText">
+                                            #{urunListItem.baslik}
+                                        </div>
+                                    </div>
+                                    <div class="homeUrunItemVote">
+                                        <div class="homeUrunItemVoteLike">
+                                            <div class="homeUrunItemVotePic">
+                                                <h:graphicImage value="/images/like.png"/>
+                                            </div>
+                                            <div class="homeUrunItemVoteLikeText"> 
+                                                <h:outputText value="#{urunListItem.likeCount/(urunListItem.likeCount + urunListItem.dislikeCount)*100}" rendered="#{urunListItem.likeCount != 0}">
+                                                <f:convertNumber pattern="#0.0" />
+                                                </h:outputText> 
+                                                <h:outputLabel value="0" rendered="#{urunListItem.likeCount == 0}"/> %
+                                            </div>
+                                        </div>
+                                        <div class="homeUrunItemVoteDislike">
+                                            <div class="homeUrunItemVotePic">
+                                                <h:graphicImage value="/images/dislike.png"/>
+                                            </div>
+                                            <div class="homeUrunItemVoteDislikeText">
+                                                <h:outputText value="#{urunListItem.dislikeCount/(urunListItem.likeCount + urunListItem.dislikeCount)*100}" rendered="#{urunListItem.dislikeCount != 0}">
+                                                <f:convertNumber pattern="#0.0" />
+                                                </h:outputText>
+                                                <h:outputLabel value="0" rendered="#{urunListItem.dislikeCount == 0}"/> %
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </h:commandLink>
+                    </ui:repeat>
+                </h:form>
+            </div>
+        </div>
+        <div id="footer">
+            <ui:include src="footer.xhtml"/>
+        </div>
+    </h:body>
+</html>
+

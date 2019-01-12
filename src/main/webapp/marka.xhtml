@@ -1,0 +1,201 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputScript library="js" name="main.js"/>
+    </h:head>
+    <h:body>
+        <div id="header">
+            <ui:include src="header.xhtml"/>
+        </div>
+        <div id="contentMarka">
+            <div id="contentMarkaRight">
+                <div id="kategoriNav">
+                    <h:form>
+                        <h:commandLink action="#{MainBean.kategoriSayfasinaGit(MainBean.selectedKategori.kategoriID-1)}" value="#{MainBean.selectedKategori.kategoriAdi}"/>
+                        /
+                        #{MainBean.selectedMarka.markaAdi}
+                        /
+                        <h:commandButton onmousedown="kutuAc6()" onmouseup="kutuAc6()" rendered="#{MainBean.admin != null}" value="Markayı Sil"/>
+                        <div id="myModal6" class="modal">
+                            <div class="modal-content">
+                                <div class="modalHeader">
+                                    <h:outputText class="modalHeaderText" value="Markayi Sil Onay"/>
+                                    <h:commandButton onclick="kutuKapat6()" class="modalExitButton" value="&Chi;"/>
+                                </div>
+                                <div class="modalIcerik">
+                                    <div class="modalTextBox1">
+                                        <h:outputText style="font-size:20px; color:black; " value="Secili markayi silmek istediginize emin misiniz?"/>
+                                    </div>
+                                    <div class="modalButtonBox1">
+                                        <h:commandButton style="font-size:20px; color:black; margin-left:300px; margin-top:20px;" action="#{MainBean.markaSil()}" value="Sil"/>
+                                        <h:commandButton style="font-size:20px; color:black; margin-left:50px;" onclick="kutuKapat6()" value="Vacgec"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        /
+                        <h:commandButton onmousedown="kutuAc7()" onmouseup="kutuAc7()"  rendered="#{MainBean.admin != null}" value="Markayı Güncelle"/>
+                        <div id="myModal7" class="modal">
+                            <div class="modal-content">
+                                <div class="modalHeader">
+                                    <h:outputText class="modalHeaderText" value="Markayi Guncelle"/>
+                                    <h:commandButton onclick="kutuKapat7()" class="modalExitButton" value="&Chi;"/>
+                                </div>
+                                <div class="modalIcerik">
+                                    <div class="modalTextBox1">
+                                        <h:inputText value="#{MainBean.kategoriEkleText}" class="modalText" size="20"/>
+                                        <h:commandButton class="modalButton" action="#{MainBean.markaGuncelle()}" value="Onayla"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        /
+                        <h:commandButton onmousedown="kutuAc8()" onmouseup="kutuAc8()"  rendered="#{MainBean.admin != null}" value="Ürün Ekle"/>
+                        <div id="myModal8" class="modal">
+                            <div class="modal-content" style="height:400px;">
+                                <div class="modalHeader">
+                                    <h:outputText class="modalHeaderText" value="Urun Ekle"/>
+                                    <h:commandButton onclick="kutuKapat8()" class="modalExitButton" value="&Chi;"/>
+                                </div>
+                                <div class="modalIcerik2">
+                                    <div class="modalIcerik2Left">
+                                        <h:outputText style="margin-left:50px;font-size:15px; color:black;" value="Urun Resmi : "/>
+                                        <div class="modalIcerikResimBox">
+                                            <h:graphicImage value="#{MainBean.yeniUrunResimYolu}" style="width:250px;height:250px;"/>
+                                        </div>
+                                        <div class="modalIcerikResimYolu">
+                                            <div class="resimPath">
+                                                <h:inputText value="#{MainBean.yeniUrunResimYolu}" size="20"/>
+                                            </div>
+                                            <div class="resimYoluButton">
+                                                <h:commandButton action="#{MainBean.dosyaSec()}" value="Dosya Sec"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modalIcerik2Right">
+                                        <h:outputText style="font-size:15px; color:black;" value="Urun Basligi : "/>
+                                        <h:inputText value="#{MainBean.yeniUrunBaslik}" size="51"/>
+                                        <h:outputText style="font-size:15px; color:black;" value="Urun Aciklamasi : "/>
+                                        <h:inputTextarea value="#{MainBean.yeniUrunAciklama}" rows="8" cols="50"/>
+                                        <h:outputText style="font-size:15px; color:black;" value="Urun Fiyati : "/>
+                                        <h:inputText value="#{MainBean.yeniUrunFiyat}" size="51"/>
+                                        <h:commandButton action="#{MainBean.urunEkle()}" value="Urunu Ekle" style="margin-left:170px;margin-top:15px;"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+                <div id="urunListBox">
+                    <h:form>
+                        <ui:repeat value="#{MainBean.urunlerList}" var="urunListItem">
+                            <h:commandLink action="#{MainBean.urunSayfasinaGit(urunListItem.urunID)}">
+                                <div class="homeUrunItem" >
+                                    <div class="homeUrunItemPic">
+                                        <h:graphicImage value="#{urunListItem.imagePath}" style="width:350px;height:200px;"/>
+                                    </div>
+                                    <div class="homeUrunItemBottom">
+                                        <div class="homeUrunItemHeader">
+                                            <div class="homeUrunItemHeaderText">
+                                                #{urunListItem.baslik}
+                                            </div>
+                                        </div>
+                                        <div class="homeUrunItemVote">
+                                            <div class="homeUrunItemVoteLike">
+                                                <div class="homeUrunItemVotePic">
+                                                    <h:graphicImage value="/images/like.png"/>
+                                                </div>
+                                                <div class="homeUrunItemVoteLikeText">
+                                                    <h:outputText value="#{urunListItem.likeCount/(urunListItem.likeCount + urunListItem.dislikeCount)*100}" rendered="#{urunListItem.likeCount != 0}">
+                                                    <f:convertNumber pattern="#0.0" />
+                                                    </h:outputText> 
+                                                    <h:outputLabel value="0" rendered="#{urunListItem.likeCount == 0}"/> %
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="homeUrunItemVoteDislike">
+                                                <div class="homeUrunItemVotePic">
+                                                    <h:graphicImage value="/images/dislike.png"/>
+                                                </div>
+                                                <div class="homeUrunItemVoteDislikeText">
+                                                    <h:outputText value="#{urunListItem.dislikeCount/(urunListItem.likeCount + urunListItem.dislikeCount)*100}" rendered="#{urunListItem.dislikeCount != 0}">
+                                                    <f:convertNumber pattern="#0.0" />
+                                                    </h:outputText> 
+                                                   <h:outputLabel value="0" rendered="#{urunListItem.dislikeCount == 0}"/> %
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </h:commandLink>
+                        </ui:repeat>
+                    </h:form>
+                </div>
+            </div>
+            <div id="contentMarkaLeft">
+                <div class="filtreHeader">
+                    Filtrele
+                </div>
+                <div class="filtreBox">
+                    
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <ui:include src="footer.xhtml"/>
+        </div>
+        <script>
+                var model6 = document.getElementById("myModal6");
+                var model7 = document.getElementById("myModal7");
+                var model8 = document.getElementById("myModal8");
+                function kutuAc6(){
+                    model6.style.display = "block";
+                    return "return false";
+                };
+                function kutuKapat6(){
+                    model6.style.display = "none";
+                    return "return false";
+                }
+                window.onclick = function(event) {
+                    if (event.target === model) {
+                      model.style.display = "none";
+                    }
+                    if (event.target === model2) {
+                      model2.style.display = "none";
+                    }
+                    if (event.target === model6) {
+                      model6.style.display = "none";
+                    }
+                    if (event.target === model7) {
+                      model7.style.display = "none";
+                    }
+                    if (event.target === model8) {
+                      model8.style.display = "none";
+                    }
+                  };
+                function kutuAc7(){
+                    model7.style.display = "block";
+                    return "return false";
+                };
+                function kutuKapat7(){
+                    model7.style.display = "none";
+                    return "return false";
+                }
+                function kutuAc8(){
+                    model8.style.display = "block";
+                    return "return false";
+                };
+                function kutuKapat8(){
+                    model8.style.display = "none";
+                    return "return false";
+                }
+            </script>
+    </h:body>
+</html>
+

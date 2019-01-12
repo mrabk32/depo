@@ -1,0 +1,1060 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 8, 2018, 3:44:16 PM
+    Author     : ahmetbestamikose
+*/
+body{
+    margin:0;
+    background-color: #f0f0f0;
+    /*background-image: url(../..//images/husk_@2X.png);*/
+}
+a{
+    color:black
+}
+#headerBox{
+    width:100%;
+    height:170px;
+}
+#headerTop{
+    width:100%;
+    height:120px;
+    background-image: url(../..//images/doodles.png);
+}
+#headerLogo{
+    width:10%;
+    height:120px;
+    float:left;
+    padding-left:30px
+}
+#headerText{
+    width:75%;
+    height:120px;
+    float:left;
+}
+#headerLogin{
+    width:10%;
+    height:120px;
+    float:left;
+    /*overflow:hidden;*/
+}
+.headerLoginTop{
+    width:100%;
+    height:60px;
+    padding-top:10px;
+    padding-left:5px;
+    font-size:17px;
+    text-align:center;
+    background-color:white;
+}
+.headerLoginBottom{
+    width:100%;
+    height:50px;
+}
+#headerLoginText{
+    float:right;
+    padding-top:15px
+}
+#headerLoginPic{
+    float:right;
+}
+#headerBottom{
+    width:100%;
+    height:50px;
+    background-image: url(../..//images/dark_brick_wall.png);
+    
+}
+
+/*Menu Tasarimi*/
+
+.navbar{
+    width:100%;
+    padding-top:4px;
+    float: left;
+    overflow: hidden;
+}
+.navbar a{
+    font-family: Arial, Helvetica, sans-serif;
+    color:#E0EEEE;
+    font-size:23px;
+    text-decoration:none;
+    float:left;
+    padding:10px;
+    margin-left:35px;
+}
+.dropdown {
+    float: left;
+}
+.dropdown-content{
+    display:none;
+    width:180px;
+    max-height:270px;
+    position: absolute;
+    background-image: url(../..//images/dark_brick_wall.png);
+    margin-top:46px;
+    border-top:solid 1px #E0EEEE;
+    padding-bottom:5px;
+}
+.dropdown-content a{
+    font-family: Arial, Helvetica, sans-serif;
+    color:#E0EEEE;
+    font-size:22px;
+    text-decoration:none;
+    float:left;
+    padding:10px;
+    margin-left:40px;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*Footer Tasarimi*/ 
+
+#footerBox{
+    width:100%;
+    height:100px;
+    background-image: url(../..//images/dark_brick_wall.png);
+    float:left;
+    margin-top: 50px;
+}
+.footerNav{
+    width: 1200px;
+    height: 100px;
+    margin:0 auto;
+}
+.footerLeft{
+    width: 400px;
+    height:100px;
+    float:left;
+}
+.footerMenu{
+    margin-top:10px;
+    /*margin-left:10px;*/
+}
+.footerMenuItem{
+    text-align: center;
+    margin:5px;
+}
+.footerMenuItem a{
+    font-size:19px;
+    color: #E0EEEE;
+    text-decoration:none;
+    
+}
+.footerMiddle{
+    width: 400px;
+    height:100px;
+    float:left;
+}
+.footerMiddleText{
+    /*margin-left:20px;*/
+    padding-top:3px;
+    color:#E0EEEE;
+    font-size:22px;
+    float:left;
+    margin-top:30px;
+    margin-left: 90px;
+}
+.footerRight{
+    width: 400px;
+    height:100px;
+    float:left;
+}
+.footerMailBox{
+    margin-top: 30px;
+    margin-left: 50px;
+}
+.footerMailPic{
+    float:left
+}
+.footerMailText{
+    margin-left:10px;
+    padding-top:3px;
+    color:#E0EEEE;
+    font-size:22px;
+    float:left
+}
+
+/*Icerik Tasarimi*/
+
+
+#content{
+    width:1100px;
+    min-height:500px;
+    margin:0 auto;
+    /*background-color: white;*/
+    padding-top:30px;
+
+}
+
+/*Sol taraf tasarimi*/
+
+
+#contentLeft{
+    width:760px;
+    min-height:1000px;
+    padding: 5px;
+    /*border:solid 1px black;*/
+    float:left
+}
+#sliderBox{
+    width:750px;
+    height:250px;
+    float:left;
+    /*border: solid 1px black*/
+    
+}
+#urunListHeader{
+    width:750px;
+    height:33px;
+    float:left;
+    margin-top:20px;
+    background-image: url(../..//images/dark_brick_wall.png);
+    color:#E0EEEE;
+    font-size:25px;
+    text-align:center;
+    /*padding-left:50px;*/
+    padding-top:7px
+}
+#urunListBox{
+    width:750px;
+    min-height:500px;
+    /*border: solid 1px black;*/
+    float:left;
+    background-color: white;
+    /*margin-top:10px;*/
+}
+.homeUrunItem{
+    width:350px;
+    height:260px;
+    margin:10px;
+    float:left;
+    /*border: solid 1px black;*/
+    overflow: hidden;
+}
+.homeUrunItem:hover > .homeUrunItemPic{
+/*    animation: shake 0.6s;
+    animation-iteration-count: infinite; */
+}
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.homeUrunItemPic{
+    width:350px;
+    height:200px;
+    border-bottom:solid 1px black;
+    float:left
+}
+.homeUrunItemBottom{
+    width:350px;
+    height:60px;
+    float:left;
+    /*background-color:*/ 
+}
+.homeUrunItemHeader{
+    width:280px;
+    height:40px;
+    float:left
+    /*border: solid 1px black;*/
+}
+.homeUrunItemHeaderText{
+    width:280px;
+    height:50px;
+    font-size:20px;
+    padding-top:10px;
+    padding-left: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    /*color:*/
+}
+.homeUrunItemVote{
+    width:70px;
+    height:60px;
+    float:left;
+
+}
+.homeUrunItemVoteLike{
+    width:100px;
+    height:30px;
+    float:left
+}
+.homeUrunItemVoteDislike{
+    width:100px;
+    height:30px;
+    float:left;
+}
+.homeUrunItemVotePic{
+    float: left;
+}
+.homeUrunItemVoteLikeText{
+    padding-top:10px;
+    float:left;
+}
+.homeUrunItemVoteDislikeText{
+    padding-top:5px;
+    float:left;
+}
+
+/*Sag taraf tasarimi*/
+
+#contentRight{
+    width:280px;
+    height:1000px;
+    float:right;
+    padding: 5px;
+    /*border:solid 1px black;*/
+}
+#top5UrunHeader{
+    width:280px;
+    height:33px;
+    background-image: url(../..//images/dark_brick_wall.png);
+    color:#E0EEEE;
+    font-size:25px;
+    text-align:center;
+    padding-top:7px;
+    margin-bottom:10px;
+}
+#topUrunBox{
+    width:280px;
+    height:750px;
+    float:right;
+    background-color: white;
+}
+.top5UrunItem{
+    width:280px;
+    height:140px;
+    margin-bottom:10px;
+    background-color: white;
+    /*border: solid 1px black;*/
+}
+.top5UrunLeft{
+    width:180px;
+    height:140px;
+    float:left;
+}
+.top5UrunRigth{
+    width:100px;
+    height:140px;
+    float:left;
+}
+.top5UrunRigthTop{
+    width:90px;
+    height:60px;
+    float:left;
+    text-align: center;
+    font-weight:bold;
+    overflow: hidden;
+    padding-top:10px;
+    padding-right:10px;
+}
+.top5UrunRightBottom{
+    width:100px;
+    height:70px;
+    float:left;
+}
+.top5UrunVoteBox{
+    width:50px;
+    height:35px;
+    border-radius:100%;
+    background-color:green;
+    margin-left:30px;
+    text-align: center;
+    padding-top:15px;
+}
+.top5UrunVoteText{
+}
+.filtreHeader{
+    width:280px;
+    height:33px;
+    background-image: url(../..//images/dark_brick_wall.png);
+    color:#E0EEEE;
+    font-size:25px;
+    text-align:center;
+    padding-top:7px;
+}
+
+/*Kategori Sayfa Ayarlari*/
+
+#contentKategori{
+    width:1100px;
+    min-height:500px;
+    margin:40px auto;
+}
+#contentKategoriLeft{
+    width:280px;
+    min-height:500px;
+    padding: 5px;
+    float:left;
+}
+#contentKategoriRight{
+    width:750px;
+    min-height:500px;
+    padding: 5px;
+    float:right;
+}
+
+#kategoriNav{
+    width: 720px;
+    height:35px;
+    margin:0 auto;
+    /*border-radius:20px;*/
+    background-image: url(../..//images/dark_brick_wall.png);
+    padding-top:10px;
+    padding-left:30px;
+    font-size:22px;
+    color:#E0EEEE;
+}
+#kategoriNav a{
+    font-size:22px;
+    color:#E0EEEE;
+    text-decoration: none;
+}
+
+/*Kategori Sayfasi Filtre Tasarimi*/
+
+.urunSayfaBox{
+    width:750px;
+    min-height:500px;
+    background-color: white;
+    padding-top:20px;
+}
+.urunSayfaUrunHeader{
+    width:750px;
+    height:50px;
+    float:left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:30px;
+    text-align:center;
+    font-weight: bold;
+}
+.urunSayfaTop{
+    width:750px;
+    height:300px;
+    float:left;
+}
+.urunSayfaUrunPic{
+    width: 350px;
+    height:300px;
+    float:left;
+    margin-right:50px;
+}
+.urunSayfaUrunTextHeader{
+    width: 320px;
+    height:40px;
+    float:left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:22px;
+    padding-top:10px;
+    padding-left:30px;
+}
+.urunSayfaUrunText{
+    width: 350px;
+    height:150px;
+    float:left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:20px;
+}
+.urunSayfaUrunFiyat{
+    width: 350px;
+    height:100px;
+    float:left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:30px;
+    color: green;
+}
+.urunSayfaBottom{
+    width:750px;
+    height:150px;
+    float:left;
+}
+.urunSayfaBottomHeader{
+    width:750px;
+    height:30px;
+    font-size:27px;
+    font-family: Arial, Helvetica, sans-serif;
+    float:left;
+    text-align: center
+}
+.urunSayfaVoteBox{
+    float:left;
+    width: 750px;
+    height: 70px;
+    padding-top:30px;
+}
+.urunSayfaAl{
+    width:350px;
+    height:100px;
+    float:left;
+}
+.urunSayfaAlma{
+    width:350px;
+    height:100px;
+    float:right;
+}
+.urunSayfaYorumBox{
+    width:750px;
+    min-height:500px;
+    float:left;
+    /*margin-top:50px;*/
+    background-color:white;
+    
+}
+.urunSayfaYorumHeader{
+    width:750px;
+    height:30px;
+    float:left;
+    text-align:center;
+    font-size:25px;
+    font-weight:bold;
+    color: #E0EEEE;
+    background-image: url(../..//images/dark_brick_wall.png);
+    padding-top: 5px;
+}
+.urunSayfaYorumYapBox{
+    width:750px;
+    min-height:250px;
+    float:left;
+    border-bottom:solid 1px black;
+}
+.yorumBoxProfil{
+    width: 248px;
+    height: 250px;
+    border-right: solid 1px black;
+    float:left;
+    
+}
+.yorumBoxProfilPic{
+    width: 190px;
+    height: 170px;
+    border-right: solid 1px black;
+    float:left;
+    padding-left:58px;
+    padding-top:30px;
+}
+.yorumBoxProfilText{
+    width:250px;
+    height:50px;
+    text-align:center;
+    font-size:21px;
+    font-weight:bold;
+}
+.yorumBox{
+    width: 500px;
+    height:250px;
+    float: left;
+    
+}
+.yorumMetni{
+    width: 480px;
+    height: 180px;
+    padding-top: 20px;
+    padding-left: 20px;
+    float:left;
+}
+.yorumYapButtonBox{
+    width:500px;
+    height:50px;
+    float:left;
+}
+.yorumYapButton{
+    width: 120px;
+    height:30px;
+    background-color: green;
+    border-radius:20px;
+    border: solid 1px greenyellow;
+    padding-top:10px;
+    text-align:center;
+    font-size:18px;
+    float:right;
+    margin-right:50px
+    
+}
+.urunSayfaYorumListeBox{
+    width:750px;
+    min-height:300px;
+    padding-top:20px
+}
+.yorumItemBox{
+    width:700px;
+    min-height:80px;
+    margin:10px auto;
+}
+.yorumItemTop{
+    width:700px;
+    height:30px;
+    float:left;
+    padding-top:10px;
+}
+.yorumItemHeader{
+    width:200px;
+    height:40px;
+    float:left;
+    font-weight:bold;
+    font-size:18px;
+    padding-left:20px;
+}
+.yorumItemDate{
+    width:300px;
+    height:40px;
+    float:left;
+    text-align:right;
+    padding-right:20px;
+}
+.yorumItemBottom{
+    width:700px;
+    min-height:50px;
+    float:left;
+}
+.yorumItemText{
+    width:690px;
+    min-height:50px;
+    padding-left:10px;
+}
+
+/*Urun Sayfasi Ayarlari*/
+
+
+
+#contentMarka{
+    width:1100px;
+    min-height:500px;
+    margin:40px auto;
+}
+#contentMarkaLeft{
+    width:280px;
+    min-height:500px;
+    padding: 5px;
+    float:left;
+}
+#contentMarkaRight{
+    width:750px;
+    min-height:500px;
+    padding: 5px;
+    float:right;
+}
+
+
+/*Urun Sayfasi Ayarlari*/
+
+
+
+#contentUrun{
+    width:1100px;
+    height:2000px;
+    margin:40px auto;
+}
+#contentUrunLeft{
+    width:280px;
+    height:1000px;
+    padding: 5px;
+    float:left;
+}
+#contentUrunRight{
+    width:760px;
+    height:1000px;
+    padding: 5px;
+    float:right;
+}
+
+
+/*Giris Sayfasi Ayarlari*/
+
+.contentGiris{
+    width:1100px;
+    height:400px;
+    margin:0 auto;
+}
+.girisYapBox{
+    width: 800px;
+    height:400px;
+    margin:0 auto;
+    margin-top:40px;
+    background-color: white;
+}
+.girisYapHeader{
+    width:800px;
+    height:40px;
+    color: #E0EEEE;
+    background-image: url(../..//images/dark_brick_wall.png);
+    font-size: 25px;
+    text-align: center;
+    padding-top:10px;
+}
+.girisYapBottom{
+    width:800px;
+    height:350px;
+}
+.girisYapLeft{
+    width:399px;
+    height:350px;
+    float:left;
+    border-right:solid 1px black;
+}
+.girisYapPP{
+    width:249px;
+    height:130px;
+    float:left;
+    padding-left: 150px;
+    padding-top:20px;
+}
+.girisYapText{
+    width:399px;
+    height:120px;
+    float:left;
+    padding-top:10px;
+    padding-left: 30px;
+}
+
+.girisYapBaslik{
+    width:399px;
+    height:18px;
+    float:left;
+    font-weight: bold;
+}
+.girisYapArea{
+    width:399px;
+    height:40px;
+    float:left;
+}
+.girisYapButtonBox{
+    width:399px;
+    height:40px;
+    float:left
+}
+.girisIslemBox{
+    width:399px;
+    height:30px;
+    float:left;
+    padding-top:5px;
+}
+.girisIslemLeft{
+    width:170px;
+    height:30px;
+    float:left;
+    text-align:right;
+}
+.girisIslemSeperator{
+    width: 19px;
+    height:30px;
+    float:left;
+    text-align: center
+}
+.girisIslemRight{
+    width:190px;
+    height:30px;
+    float:left;
+}
+.girisYapButton{
+    width:120px;
+    height:30px;
+    font-size:22px;
+    color: #E0EEEE;
+    text-align: center;
+    background-color: black;
+    border-radius:50px;
+    margin-left:150px;
+    padding-top:5px;
+}
+.girisYapRight{
+    width:329px;
+    height:240px;
+    float:left;
+    padding-top:110px;
+    /*padding-left:20px;*/
+    padding-left:70px
+}
+
+.filtreBox{
+    width:280px;
+    height:200px;
+    background-color:white;
+}
+.uyeOlText{
+    width:399px;
+    height:250px;
+    float:left;
+    padding-top:10px;
+    padding-left: 30px;
+}
+.sifremiUnuttumBox{
+    width:800px;
+    height:120px;
+    float:left;
+    border-bottom:solid 2px black
+}
+.sifremiUnuttumText{
+    margin-top:50px;
+    margin-left:120px;
+    float:left
+}
+#sifremiUnuttumButton{
+    width:100px;
+    height:28px;
+    background-image: url(../..//images/dark_brick_wall.png);
+    float:right;
+    margin-left:30px;
+    padding-top:2px;
+    text-align: center;
+    border-radius:30px;
+}
+#sifremiUnuttumButton a{
+    font-size:22px;
+    color: #E0EEEE;
+    text-decoration: none;
+}
+
+.sifremiUnuttumAciklamaBox{
+    width:800px;
+    height:200px;
+    float:left;
+}
+.sifremiUnuttumAciklamaHeader{
+    width:800px;
+    height:40px;
+    text-align: center;
+    font-size:23px;
+    padding-top:10px;
+    font-weight: bold;
+}
+.sifremiUnuttumAciklamaText{
+    padding-left:150px;
+    font-size:18px
+}
+
+.contentIletisim{
+    width:1100px;
+    min-height:500px;
+    margin:0 auto;
+}
+.iletisimBox{
+    width:800px;
+    height:500px;
+    background-color: white;
+    margin:0 auto;
+    padding-top:50px;
+}
+.iletisimEmail{
+    width:800px;
+    height:50px;
+}
+.iletisimBaslik{
+    width:800px;
+    height:50px;
+}
+.iletisimAciklama{
+    width:800px;
+    height:200px;
+}
+.iletisimButton{
+    width:800px;
+    height:50px;
+}
+.iletisimGonderButton{
+    width:150px;
+    height:30px;
+    background-image: url(../..//images/dark_brick_wall.png);
+    float:right;
+    margin-right:240px;
+    padding-top:2px;
+    text-align: center;
+    border-radius:30px;
+}
+.iletisimGonderButton a{
+    font-size:23px;
+    color: #E0EEEE;
+    text-decoration: none;
+}
+.iletisimAreaHeader{
+    width: 250px;
+    float:left;
+    text-align:right;
+    padding-right:50px;
+    padding-top:5px;
+    font-weight: bold
+}
+.iletisimAreaText{
+    width: 400px;
+    float:left;
+}
+#oylamaKosul{
+    font-size:22px;
+    font-weight:bold;
+    padding-left:160px;
+}
+#yorumKosul{
+    font-size:22px;
+    font-weight:bold;
+    padding-left:170px;
+}
+.oylamaUrunYuzde{
+    font-size:20px;
+    font-weight:bold;
+    
+}
+
+.aramaKutusu{
+    width:400px;
+    height:45px;
+    margin:0 auto;
+    margin-top:60px;
+    border:solid 1px black;
+    background-color: white;
+    border-radius:40px;
+}
+.aramaText{
+    width:350px;
+    height:45px;
+    float:left;
+}
+.aramaButton{
+    width:50px;
+    height:50px;
+    float: left;
+}
+#aramaContent{
+    width:1100px;
+    min-height:300px;
+    margin:40px auto;
+    background-color:white;
+}
+
+.aramaItemList{
+    
+}
+.aramaItemBox{
+    
+}
+.aramaItemLeft{
+    
+}
+.aramaItemRight{
+    
+}
+.aramaItemHeader{
+    
+}
+.aramaItemAciklama{
+    
+}
+.aramaItemOy{
+    
+}
+
+.modal {
+    display:none;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 200px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width:100%;
+    height:100%;
+    overflow:auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content{
+    position: relative;
+    background-color: #f0f0f0;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 800px;
+    min-height:200px;
+    border:solid 1px black;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+.modalHeader{
+    width:100%;
+    height:40px;
+    background-image: url(../..//images/dark_brick_wall.png);
+    padding-top:5px;
+    text-align:center;
+    float:left;
+}
+.modalIcerik{
+    width:100%;
+    min-height:150px;
+    float:left;
+}
+.modalHeaderText{
+    font-size:30px;
+    color:#E0EEEE;
+    text-align:center;
+}
+.modalExitButton{
+    background-color: transparent;
+    border: none;
+    color:#E0EEEE;
+    font-size:30px;
+    float:right;
+}
+.modalTextBox1{
+    width:100%;
+    height:50%;
+    padding-left:200px;
+    padding-top:50px;
+}
+.modalText{
+    font-size:20px;
+    
+}
+.modalButton{
+    margin-left:20px;
+    font-size:20px;
+}
+.modalButtonBox1{
+    width:100%;
+    height:50%;
+}
+.modalIcerik2{
+    width:100%;
+    height:400px;
+}
+.modalIcerik2Left{
+    width:350px;
+    height:350px;
+    float:left;
+}
+.modalIcerikResimBox{
+    width:250px;
+    height:250px;
+    margin-left:50px;
+    border:solid 1px black;
+    background-color:white;
+    float:left;
+}
+.modalIcerikResimYolu{
+    width:350px;
+    height:70px;
+    float:left;
+}
+.resimPath{
+    float:left;
+    margin-left:50px;
+}
+.resimYoluButton{
+    float:left;
+}
+.modalIcerik2Right{
+    width:450px;
+    height:350px;
+    float:left;
+}

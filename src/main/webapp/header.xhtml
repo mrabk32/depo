@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <div id="headerBox">
+                #{MainBean.kategoriListesiGetir()}
+                <div id="headerTop">
+                    <div id="headerLogo">
+                        <h:form>
+                            <h:commandLink action="#{MainBean.goHome()}">
+                                <h:graphicImage value="/images/logo2.png"/>
+                            </h:commandLink>
+                        </h:form>
+                    </div>
+                    <div id="headerText">
+                        <div class="aramaKutusu">
+                            <h:form>
+                                <div class="aramaText">
+                                    <h:inputText value="#{MainBean.aranacakMetin}" size="25" style="font-size:20px; border:none; padding-top:10px;padding-bottom:10px;text-align: center; margin-left:20px; "/>
+                                </div>
+                                <div class="aramaButton">
+                                    <h:commandLink action="#{MainBean.aramaIslemi()}">
+                                        <h:graphicImage value="/images/search.png"/>
+                                    </h:commandLink>
+                                </div>
+                            </h:form>
+                        </div>
+                    </div>
+                    <div id="headerLogin">
+                        <div class="headerLoginTop">
+                            <h:outputText value="#{MainBean.selectedKullanici.kad}" style="font-weight:bold"></h:outputText>
+                            <h:outputText value="&#160;" />
+                            <h:outputText value="#{MainBean.selectedKullanici.ksoyad}" style="font-weight:bold"></h:outputText>
+                            <h:form rendered="#{MainBean.selectedKullanici != null}">
+                                <h:commandLink action="#{MainBean.goDuzenle()}">
+                                    Bilgileri Düzenle
+                                </h:commandLink>
+                            </h:form>
+                        </div>
+                        <div class="headerLoginBottom">
+                            <h:form rendered="#{MainBean.selectedKullanici == null}">
+                                <h:commandLink action="#{MainBean.goGiris()}">
+                                    <div id="headerLoginPic">
+                                        <h:graphicImage value="/images/login.png"/>
+                                    </div>
+                                    <div id="headerLoginText">
+                                        Üye Girişi
+                                    </div>
+                                </h:commandLink>
+                            </h:form>
+                            <h:form rendered="#{MainBean.selectedKullanici != null}" >
+                                <h:commandLink action="#{MainBean.cikisYap()}">
+                                    <div id="headerLoginPic">
+                                        <h:graphicImage value="/images/login.png"/>
+                                    </div>
+                                    <div id="headerLoginText">
+                                        Çıkış Yap
+                                    </div>
+                                </h:commandLink>
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+                <div id="headerBottom">
+                    <h:form>
+                        <div class="navbar">
+                            <h:commandLink action="#{MainBean.goHome()}" value="#{MainBean.kategoriAdiGetir(0)}"/>
+                            <div class="dropdown">
+                                <h:commandLink class="dropbtn" action="#{MainBean.kategoriSayfasinaGit(1)}" value="#{MainBean.kategoriAdiGetir(1)}" />
+                                <div class="dropdown-content">
+                                    <h:commandLink action="#{MainBean.markaSayfasinaGit(1, 0)}" class="hoverNavItem" value="#{MainBean.markaAdiGetir(1, 0)}"/>
+                                    <h:commandLink action="#{MainBean.markaSayfasinaGit(1, 1)}" class="hoverNavItem" value="#{MainBean.markaAdiGetir(1, 1)}"/>
+                                    <h:commandLink action="#{MainBean.markaSayfasinaGit(1, 2)}" class="hoverNavItem" value="#{MainBean.markaAdiGetir(1, 2)}"/>
+                                    <h:commandLink action="#{MainBean.markaSayfasinaGit(1, 3)}" class="hoverNavItem" value="#{MainBean.markaAdiGetir(1, 3)}"/>
+                                    <h:commandLink action="#{MainBean.markaSayfasinaGit(1, 4)}" class="hoverNavItem" value="#{MainBean.markaAdiGetir(1, 4)}"/>
+                                    <h:commandLink action="#{MainBean.markaSayfasinaGit(1, 5)}" class="hoverNavItem" value="#{MainBean.markaAdiGetir(1, 5)}"/>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <h:commandLink class="dropbtn" action="#{MainBean.kategoriSayfasinaGit(2)}" value="#{MainBean.kategoriAdiGetir(2)}" />
+                                <div class="dropdown-content">
+                                    <h:commandLink action="#{MainBean.markaSayfasinaGit(2, 0)}" class="hoverNavItem" value="#{MainBean.markaAdiGetir(2, 0)}"/>
+                                    <h:commandLink action="#{MainBean.markaSayfasinaGit(2, 1)}" class="hoverNavItem" value="#{MainBean.markaAdiGetir(2, 1)}"/>
+                                    <h:commandLink action="#{MainBean.markaSayfasinaGit(2, 2)}" class="hoverNavItem" value="#{MainBean.markaAdiGetir(2, 2)}"/>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <h:commandLink class="dropbtn" action="#{MainBean.kategoriSayfasinaGit(3)}" value="#{MainBean.kategoriAdiGetir(3)}"/>
+                                <div class="dropdown-content">
+                                    <h:commandLink action="#{MainBean.markaSayfasinaGit(3, 0)}" class="hoverNavItem" value="#{MainBean.markaAdiGetir(3, 0)}"/>
+                                    <h:commandLink action="#{MainBean.markaSayfasinaGit(3, 1)}" class="hoverNavItem" value="#{MainBean.markaAdiGetir(3, 1)}"/>
+                                    <h:commandLink action="#{MainBean.markaSayfasinaGit(3, 2)}" class="hoverNavItem" value="#{MainBean.markaAdiGetir(3, 2)}"/>
+                                    <h:commandLink action="#{MainBean.markaSayfasinaGit(3, 3)}" class="hoverNavItem" value="#{MainBean.markaAdiGetir(3, 3)}"/>
+                                    <h:commandLink action="#{MainBean.markaSayfasinaGit(3, 4)}" class="hoverNavItem" value="#{MainBean.markaAdiGetir(3, 4)}"/>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <h:commandLink class="dropbtn" action="#{MainBean.kategoriSayfasinaGit(4)}" value="#{MainBean.kategoriAdiGetir(4)}"/>
+                                <div class="dropdown-content">
+                                    <h:commandLink action="#{MainBean.markaSayfasinaGit(4, 0)}" class="hoverNavItem" value="#{MainBean.markaAdiGetir(4, 0)}"/>
+                                    <h:commandLink action="#{MainBean.markaSayfasinaGit(4, 1)}" class="hoverNavItem" value="#{MainBean.markaAdiGetir(4, 1)}"/>
+                                    <h:commandLink action="#{MainBean.markaSayfasinaGit(4, 2)}" class="hoverNavItem" value="#{MainBean.markaAdiGetir(4, 2)}"/>
+                                    <h:commandLink action="#{MainBean.markaSayfasinaGit(4, 3)}" class="hoverNavItem" value="#{MainBean.markaAdiGetir(4, 3)}"/>
+                                </div>
+                            </div>
+                            <h:commandButton onmousedown="kutuAc()" onmouseup="kutuAc()" style="margin-top:12px; margin-left:20px;" rendered="#{MainBean.admin != null}" value="Kategori Ekle"/>
+                            <div id="myModal" class="modal">
+                                <div class="modal-content">
+                                    <div class="modalHeader">
+                                        <h:outputText class="modalHeaderText" value="Kategori Ekle"/>
+                                        <h:commandButton onclick="kutuKapat()" class="modalExitButton" value="&Chi;"/>
+                                    </div>
+                                    <div class="modalIcerik">
+                                        <div class="modalTextBox1">
+                                            <h:inputText value="#{MainBean.kategoriEkleText}" class="modalText" size="20"/>
+                                            <h:commandButton class="modalButton" action="#{MainBean.kategoriEkle()}" value="Onayla"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h:commandButton onmousedown="kutuAc2()" onmouseup="kutuAc2()" style="margin-top:12px; margin-left:20px;" rendered="#{MainBean.admin != null}" value="Ürün Ekle"/>
+                            <div id="myModal2" class="modal" onclick="kutuKapat2()">
+                                <div class="modal-content">
+                                    <div class="modalHeader">
+                                        <h:outputText class="modalHeaderText" value="Urun Ekle"/>
+                                        <h:commandButton onclick="kutuKapat2()" class="modalExitButton" value="&Chi;"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <h:commandButton action="#{MainBean.adminCikisYap()}" style="margin-top:12px; margin-right:20px; float:right" rendered="#{MainBean.admin != null}" value="Admin Cikis"/>
+                            <h:commandButton action="#{MainBean.goAdminGirisPage()}" style="margin-top:12px; margin-right:20px; float:right" rendered="#{MainBean.admin == null}" value="Admin Giris"/>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+            <script>
+                var model = document.getElementById("myModal");
+                var model2 = document.getElementById("myModal2");
+                function kutuAc(){
+                    model.style.display = "block";
+                    return "return false";
+                };
+                function kutuKapat(){
+                    model.style.display = "none";
+                    return "return false";
+                }
+                window.onclick = function(event) {
+                    if (event.target === model) {
+                      model.style.display = "none";
+                    }
+                    if (event.target === model2) {
+                      model2.style.display = "none";
+                    }
+                  };
+                function kutuAc2(){
+                    model2.style.display = "block";
+                    return "return false";
+                };
+                function kutuKapat2(){
+                    model2.style.display = "none";
+                    return "return false";
+                }
+            </script>
+        </ui:composition>
+    </h:body>
+</html>
+

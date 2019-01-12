@@ -1,0 +1,269 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Almalimi.com | Ürün almadan önce ... </title>
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputScript library="js" name="main.js"/>
+    </h:head>
+    <h:body>
+        <div id="header">
+            <ui:include src="header.xhtml"/>
+        </div>
+        <div id="contentKategori">
+            <div id="contentKategoriRight">
+                <div id="kategoriNav">
+                    <h:form>
+                        <h:commandLink action="#{MainBean.kategoriSayfasinaGit(MainBean.selectedKategori.kategoriID)}" value="#{MainBean.selectedKategori.kategoriAdi}"/>
+                        /
+                        #{MainBean.selectedMarka.markaAdi}
+                        /
+                        #{MainBean.selectedUrun.baslik}
+                        /
+                        <h:commandButton onmousedown="kutuAc9()" onmouseup="kutuAc9()" rendered="#{MainBean.admin != null}" value="Ürünü Sil"/>
+                        <div id="myModal9" class="modal">
+                            <div class="modal-content">
+                                <div class="modalHeader">
+                                    <h:outputText class="modalHeaderText" value="Urunu Sil Onay"/>
+                                    <h:commandButton onclick="kutuKapat9()" class="modalExitButton" value="&Chi;"/>
+                                </div>
+                                <div class="modalIcerik">
+                                    <div class="modalTextBox1">
+                                        <h:outputText style="font-size:20px; color:black; " value="Secili urunu silmek istediginize emin misiniz?"/>
+                                    </div>
+                                    <div class="modalButtonBox1">
+                                        <h:commandButton style="font-size:20px; color:black; margin-left:300px; margin-top:20px;" action="#{MainBean.urunSil()}" value="Sil"/>
+                                        <h:commandButton style="font-size:20px; color:black; margin-left:50px;" action="#" value="Vacgec"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        /
+                        <h:commandButton onmousedown="kutuAc10()" onmouseup="kutuAc10()" rendered="#{MainBean.admin != null}" value="Ürünü Güncelle"/>
+                        <div id="myModal10" class="modal">
+                            <div class="modal-content">
+                                <div class="modalHeader">
+                                    <h:outputText class="modalHeaderText" value="Urunu Guncelle"/>
+                                    <h:commandButton onclick="kutuKapat10()" class="modalExitButton" value="&Chi;"/>
+                                </div>
+                                <div class="modalIcerik2">
+                                    <div class="modalIcerik2Left">
+                                        <h:outputText style="margin-left:50px;font-size:15px; color:black;" value="Urun Resmi : "/>
+                                        <div class="modalIcerikResimBox">
+                                            <h:graphicImage value="#{MainBean.yeniUrunResimYolu}" style="width:250px;height:250px" />
+                                        </div>
+                                        <div class="modalIcerikResimYolu">
+                                            <div class="resimPath">
+                                                <h:inputText value="#{MainBean.yeniUrunResimYolu}" size="20"/>
+                                            </div>
+                                            <div class="resimYoluButton">
+                                                <h:commandButton value="Dosya Sec"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modalIcerik2Right">
+                                        <h:outputText style="font-size:15px; color:black;" value="Urun Basligi : "/>
+                                        <h:inputText value="#{MainBean.yeniUrunBaslik}" size="51"/>
+                                        <h:outputText style="font-size:15px; color:black;" value="Urun Aciklamasi : "/>
+                                        <h:inputTextarea value="#{MainBean.yeniUrunAciklama}" rows="8" cols="50"/>
+                                        <h:outputText  style="font-size:15px; color:black;" value="Urun Fiyati : "/>
+                                        <h:inputText value="#{MainBean.yeniUrunFiyat}" size="51"/>
+                                        <h:commandButton action="#{MainBean.urunGuncelle()}" value="Urunu Guncelle" style="margin-left:160px;margin-top:15px;"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+                <div class="urunSayfaBox">
+                    <div class="urunSayfaUrunHeader">
+                        #{MainBean.selectedUrun.baslik}
+                    </div>
+                    <div class="urunSayfaTop">
+                        <div class="urunSayfaUrunPic">
+                            <h:graphicImage value="#{MainBean.selectedUrun.imagePath}" width="350px" height="300px"/>
+                        </div>
+                        <div class="urunSayfaUrunTextHeader">
+                            - Özellikler - 
+                        </div>
+                        <div class="urunSayfaUrunText">
+                            #{MainBean.selectedUrun.aciklama}
+                        </div>
+                        <div class="urunSayfaUrunFiyat">
+                            #{MainBean.selectedUrun.fiyat} TL
+                        </div>
+                    </div>
+                    <div class="urunSayfaBottom">
+                        <div class="urunSayfaBottomHeader">
+                            Almalı mı?
+                        </div>
+                        <div class="urunSayfaVoteBox">
+                            <h:form>
+                                <!--rendered="#{MainBean.selectedKullanici!=null}"-->
+                                <div class="urunSayfaAl">
+                                    
+                                    <h:commandLink action="#{MainBean.alIslemi()}">
+                                        <h:graphicImage value="/images/al.png" style="float: right; background-color: yellowgreen; padding:10px; border-radius: 30%;"/>
+                                    </h:commandLink>
+                                    <div style="float: right">
+                                        
+                                        <h:outputText class="oylamaUrunYuzde"  value="#{MainBean.selectedUrun.likeCount/(MainBean.selectedUrun.likeCount + MainBean.selectedUrun.dislikeCount)*100}" rendered="#{MainBean.selectedUrun.likeCount != 0}">
+                                        <f:convertNumber pattern="#0.0" />
+                                        </h:outputText> 
+                                        <h:outputLabel  value="0" rendered="#{MainBean.selectedUrun.likeCount == 0}"/> 
+                                        %
+                                    </div>
+                                    
+                                </div>
+                                    
+                                <div class="urunSayfaAlma">
+                                    <h:outputText class="oylamaUrunYuzde" value="#{MainBean.selectedUrun.dislikeCount/(MainBean.selectedUrun.likeCount + MainBean.selectedUrun.dislikeCount)*100}" rendered="#{MainBean.selectedUrun.dislikeCount != 0}">
+                                    <f:convertNumber pattern="#0.0" />
+                                    </h:outputText> 
+                                    <h:outputLabel value="0" rendered="#{MainBean.selectedUrun.dislikeCount == 0}"/> %
+                                    <h:commandLink action="#{MainBean.almaIslemi()}">
+                                        <h:graphicImage value="/images/alma.png" style="float: left; background-color: red; padding:10px; border-radius: 30%;"/>
+                                    </h:commandLink>
+                                    
+                                </div>
+                            </h:form>
+                            <h:outputText id="oylamaKosul" value="Oylama yapabilmek için lütfen giriş yapınız." rendered="#{MainBean.selectedKullanici==null}">
+                            </h:outputText>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="urunSayfaYorumBox">
+                    <div class="urunSayfaYorumHeader">
+                        Yorumlar
+                    </div>
+                    <h:form rendered="#{MainBean.selectedKullanici!=null}">
+                        <div class="urunSayfaYorumYapBox">
+                            <div class="yorumBoxProfil">
+                                <div class="yorumBoxProfilPic">
+                                    <h:graphicImage value="/images/profil.png"/>
+                                </div>
+                                <div class="yorumBoxProfilText">
+                                    <h:outputText value="#{MainBean.selectedKullanici.kad}"></h:outputText>
+                                    <h:outputText value="&#160;" />
+                                    <h:outputText value="#{MainBean.selectedKullanici.ksoyad}"></h:outputText>
+                                </div>
+                            </div>
+                            <div class="yorumBox">
+                                <div class="yorumMetni">
+                                    <h:inputTextarea value="#{MainBean.yorumMetni}" rows="10" cols = "55" />
+                                </div>
+                                <div class="yorumYapButtonBox">
+                                    <h:commandLink action="#{MainBean.yorumYap()}" >
+                                        <div class="yorumYapButton">
+                                            Yorum Yap
+                                        </div>
+                                    </h:commandLink>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </h:form>
+                    <h:outputText id="yorumKosul" value="Yorum yapabilmek için lütfen giriş yapınız." rendered="#{MainBean.selectedKullanici==null}">
+                    </h:outputText>
+                    <div class="urunSayfaYorumListeBox">
+                        <h:form>
+                            <ui:repeat value="#{MainBean.yorumlarList}" var="yorumItem">
+                                <div class="yorumItemBox">
+                                    <div class="yorumItemTop">
+                                        <div class="yorumItemHeader">
+                                            #{yorumItem.kullanicifkID.kad} #{yorumItem.kullanicifkID.ksoyad}
+                                        </div>
+                                        <h:button onmousedown="kutuAc11()" onmouseup="kutuAc11()" rendered="#{MainBean.admin != null}" value="Yorumu Sil"/>
+                                        <div id="myModal11" class="modal">
+                                            <div class="modal-content">
+                                                <div class="modalHeader">
+                                                    <h:outputText class="modalHeaderText" value="Yorumu Sil Onay"/>
+                                                    <h:commandButton onclick="kutuKapat11()" class="modalExitButton" value="&Chi;"/>
+                                                </div>
+                                                <div class="modalIcerik">
+                                                    <div class="modalTextBox1">
+                                                        <h:outputText style="font-size:20px; color:black; " value="Secili yorumu silmek istediginize emin misiniz?"/>
+                                                    </div>
+                                                    <div class="modalButtonBox1">
+                                                        <h:commandButton style="font-size:20px; color:black; margin-left:300px; margin-top:20px;" action="#{MainBean.yorumSil(yorumItem)}" value="Sil"/>
+                                                        <h:commandButton style="font-size:20px; color:black; margin-left:50px;" onclick="kutuKapat11()" value="Vacgec"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="yorumItemDate">
+                                            #{yorumItem.ytarih}
+                                        </div>
+                                    </div>
+                                    <div class="yorumItemBottom">
+                                        <div class="yorumItemText">
+                                            #{yorumItem.yorum}
+                                        </div>
+                                    </div>
+                                </div>
+                            </ui:repeat>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+            <div id="contentKategoriLeft">
+                
+            </div>
+        </div>
+        <div id="footer">
+            <ui:include src="footer.xhtml"/>
+        </div>
+        <script>
+                var model9 = document.getElementById("myModal9");
+                var model10 = document.getElementById("myModal10");
+                var model11 = document.getElementById("myModal11");
+                function kutuAc9(){
+                    model9.style.display = "block";
+                    return "return false";
+                };
+                function kutuKapat9(){
+                    model9.style.display = "none";
+                    return "return false";
+                }
+                window.onclick = function(event) {
+                    if (event.target === model) {
+                      model.style.display = "none";
+                    }
+                    if (event.target === model2) {
+                      model2.style.display = "none";
+                    }
+                    if (event.target === model9) {
+                      model9.style.display = "none";
+                    }
+                    if (event.target === model10) {
+                      model10.style.display = "none";
+                    }
+                    if (event.target === model11) {
+                      model11.style.display = "none";
+                    }
+                  };
+                function kutuAc10(){
+                    model10.style.display = "block";
+                    return "return false";
+                };
+                function kutuKapat10(){
+                    model10.style.display = "none";
+                    return "return false";
+                }
+                function kutuAc11(){
+                    model11.style.display = "block";
+                    return "return false";
+                };
+                function kutuKapat11(){
+                    model11.style.display = "none";
+                    return "return false";
+                }
+            </script>
+    </h:body>
+</html>
+

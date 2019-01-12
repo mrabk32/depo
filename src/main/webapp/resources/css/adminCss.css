@@ -1,0 +1,81 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jan 2, 2019, 7:48:52 PM
+    Author     : ahmetbestamikose
+*/
+.body{
+    margin:0 0;
+}
+.adminContent{
+    width:1100px;
+    height:500px;
+    margin:0 auto;
+    padding-top:200px;
+}
+.adminGirisHeader{
+    width:500px;
+    height:50px;
+    margin:0 auto;
+}
+.adminGirisHeaderLeft{
+    width:250px;
+    height:50px;
+    float:left;
+    background-color:#f0f0f0;
+    border-top-left-radius:30px;
+    border-top-right-radius:40px;
+}
+.adminGirisLogo{
+    width:50px;
+    height:50px;
+    float:left;
+    margin-left:10px;
+}
+.adminGirisText{
+    width:150px;
+    height:35px;
+    float:left;
+    font-size:18px;
+    font-weight:bold;
+    padding-top:15px;
+    padding-left:10px; 
+    
+}
+.adminGirisBox{
+    width:500px;
+    height:250px;
+    background-color: #f0f0f0;
+    border-radius:20px;
+    border-top-left-radius:0px;
+    padding-top:50px;
+    margin:0 auto;
+}
+.adminGirisSubBox{
+    width:400px;
+    height:200px;
+    margin:0 auto;
+    padding-top:40px;
+}
+.adminSabit{
+    width:120px;
+    float:left;
+    height:47px;
+    font-size:18px;
+    font-weight: 500;
+    padding-top:3px;
+}
+.adminText{
+    width:200px;
+    height:50px;
+    float:left;
+    padding-left:30px;
+}
+.adminButton{
+    width:400px;
+    height:50px;
+    float:left;
+}
